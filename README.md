@@ -4,15 +4,15 @@ Sito web ufficiale e portale franchising per **AMASCALZON Mini Pub** — La pani
 
 ---
 
-## 🌟 Caratteristiche del Progetto
+##  Caratteristiche del Progetto
 
 - **Design Moderno & Fast-Casual**: Palette scura ad alto contrasto con accenti oro (`#eab308`), tipografia *Montserrat* e *Plus Jakarta Sans*.
 - **Iconografia Vettoriale Minimal**: Icone SVG scalabili e coordinate, senza dipendenze pesanti.
 - **Sezioni Principali**:
-  - 🏠 **Home / Hero**: Proposta di valore, statistiche chiave e call to action.
-  - 📖 **Chi Siamo**: Storia di oltre 20 anni e punti di forza operativi.
-  - 💼 **Franchising**: Tabella comparativa (*Paninoteca Tradizionale* vs *Mini Pub*) e griglia con i 6 servizi inclusi.
-  - 📩 **Contatti**: Form di candidatura franchising e recapiti ufficiali (invio a `mascoloalfy@libero.it`).
+  -  **Home / Hero**: Proposta di valore, statistiche chiave e call to action.
+  -  **Chi Siamo**: Storia di oltre 20 anni e punti di forza operativi.
+  -  **Franchising**: Tabella comparativa (*Paninoteca Tradizionale* vs *Mini Pub*) e griglia con i 6 servizi inclusi.
+  -  **Contatti**: Form di candidatura franchising e recapiti ufficiali (invio a `mascoloalfy@libero.it`).
 - **Completamente Responsive**: Ottimizzato per smartphone, tablet e desktop.
 
 ---
