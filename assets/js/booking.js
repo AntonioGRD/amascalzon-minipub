@@ -395,6 +395,14 @@
       };
     }
 
+    const floatBarBtn = document.getElementById('asporto-floating-cart-bar');
+    if (floatBarBtn) {
+      floatBarBtn.onclick = function (e) {
+        e.preventDefault();
+        openCartDrawer();
+      };
+    }
+
     const btnOpenCart = document.getElementById('btn-open-cart');
     if (btnOpenCart) {
       btnOpenCart.onclick = function (e) {
@@ -434,6 +442,7 @@
 
   function updateCartUI() {
     const floatBar = document.getElementById('asporto-floating-cart-bar');
+    const badgeEl = document.getElementById('float-cart-badge');
     const countEl = document.getElementById('float-cart-count');
     const totEl = document.getElementById('float-cart-total');
     const headerBadge = document.getElementById('header-cart-badge');
@@ -446,12 +455,17 @@
       headerBadge.classList.toggle('has-items', totalQty > 0);
     }
 
+    if (badgeEl) {
+      badgeEl.textContent = totalQty;
+      badgeEl.classList.toggle('has-items', totalQty > 0);
+    }
+
     if (floatBar) {
       floatBar.classList.toggle('is-visible', totalQty > 0);
       floatBar.style.display = totalQty > 0 ? 'flex' : 'none';
     }
-    if (countEl) countEl.textContent = `${totalQty} ${totalQty === 1 ? 'ARTICOLO' : 'ARTICOLI'}`;
-    if (totEl) totEl.textContent = `TOTALE: ${totalPrice}`;
+    if (countEl) countEl.textContent = `${totalQty} ${totalQty === 1 ? 'PIATTO' : 'PIATTI'}`;
+    if (totEl) totEl.textContent = totalPrice;
   }
 
   // Gestione Drawer Carrello con Modifica Quantità (+ / -) ed Eliminazione
