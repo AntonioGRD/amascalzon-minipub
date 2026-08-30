@@ -2180,4 +2180,42 @@ html, body { width: 100%; max-width: 100vw; overflow-x: hidden; background: #0A0
   width: 20px !important;
   height: 20px !important;
   stroke: currentColor !important;
+}
+
+/* ========================================================
+   Developer Credit Badge Link
+======================================================== */
+.dev-credit-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  color: #D4AF37 !important;
+  text-decoration: underline !important;
+  text-underline-offset: 3px !important;
+  font-weight: 600;
+  padding: 0.2rem 0.6rem;
+  border-radius: 6px;
+  background: rgba(212, 175, 55, 0.08);
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  transition: all 0.25s ease;
+  cursor: pointer;
+}
+
+.dev-credit-link:hover {
+  color: #ffffff !important;
+  background: rgba(212, 175, 55, 0.25);
+  border-color: #D4AF37;
+  text-decoration: none !important;
+  box-shadow: 0 0 12px rgba(212, 175, 55, 0.35);
+  transform: translateY(-2px);
+}
+
+.dev-credit-link svg {
+  display: inline-block;
+  vertical-align: middle;
+  transition: transform 0.2s ease;
+}
+
+.dev-credit-link:hover svg.external-icon {
+  transform: translate(2px, -2px);
 }
