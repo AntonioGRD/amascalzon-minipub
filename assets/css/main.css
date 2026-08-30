@@ -1229,47 +1229,37 @@ html, body { width: 100%; max-width: 100vw; overflow-x: hidden; background: #0A0
   background: #20ba59;
 }
 
-/* 4. Catalogo Menù Asporto Stile Glovo */
+/* 4. Catalogo Menù Asporto Stile Glovo / Deliveroo con Filtraggio Categoria */
 .asporto-categories-nav {
+  position: sticky;
+  top: 52px;
+  z-index: 95;
+  background: rgba(10, 10, 10, 0.94);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   display: flex;
-  gap: 0.6rem;
+  gap: 0.55rem;
   overflow-x: auto;
-  padding: 0.6rem 0.2rem 0.9rem 0.2rem;
+  padding: 0.75rem 0.25rem;
   margin-bottom: 1.5rem;
   -webkit-overflow-scrolling: touch;
   scroll-behavior: smooth;
-  scrollbar-width: thin;
-  scrollbar-color: #D4AF37 #141414;
+  scrollbar-width: none;
+  border-bottom: 1px solid rgba(212, 175, 55, 0.15);
 }
 
 .asporto-categories-nav::-webkit-scrollbar {
-  height: 5px;
-}
-
-.asporto-categories-nav::-webkit-scrollbar-track {
-  background: #141414;
-  border-radius: 10px;
-}
-
-.asporto-categories-nav::-webkit-scrollbar-thumb {
-  background: #333333;
-  border-radius: 10px;
-  border: 1px solid #141414;
-  transition: background 0.2s ease;
-}
-
-.asporto-categories-nav::-webkit-scrollbar-thumb:hover {
-  background: #D4AF37;
+  display: none;
 }
 
 .cat-pill {
   background: #161616;
-  color: #e2e8f0;
+  color: #c9d1d9;
   border: 1px solid #2e2e2e;
-  padding: 0.5rem 1.1rem;
+  padding: 0.5rem 1.15rem;
   border-radius: 25px;
   font-weight: 700;
-  font-size: 0.76rem;
+  font-size: 0.75rem;
   letter-spacing: 0.4px;
   cursor: pointer;
   white-space: nowrap;
@@ -1292,34 +1282,84 @@ html, body { width: 100%; max-width: 100vw; overflow-x: hidden; background: #0A0
   box-shadow: 0 4px 14px rgba(212, 175, 55, 0.35);
   font-weight: 800;
 }
+
+@keyframes catFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.cat-section {
+  animation: catFadeIn 0.25s ease-out;
+}
+
+.cat-header-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.25rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid #222222;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
 .cat-section-title {
   color: #D4AF37;
-  font-size: 1.15rem;
+  font-size: 1.2rem;
   font-weight: 800;
   text-transform: uppercase;
-  margin-bottom: 1rem;
-  border-bottom: 1px solid #222;
-  padding-bottom: 0.4rem;
+  letter-spacing: 0.5px;
+  margin: 0;
+  border-bottom: none;
+  padding-bottom: 0;
 }
+
+.cat-badge-count {
+  background: #181818;
+  color: #D4AF37;
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  font-size: 0.72rem;
+  font-weight: 800;
+  padding: 0.25rem 0.65rem;
+  border-radius: 20px;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+}
+
 .product-cards-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 1.2rem;
+  grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
+  gap: 1.1rem;
 }
+
 .prod-card {
   background: #121212;
   border: 1px solid #242424;
-  border-radius: 10px;
+  border-radius: 12px;
   padding: 1rem;
   display: flex;
   justify-content: space-between;
-  gap: 0.8rem;
+  gap: 0.9rem;
   cursor: pointer;
-  transition: border-color 0.2s ease;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
+
 .prod-card:hover {
   border-color: #D4AF37;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
 }
+
+.prod-card:active {
+  transform: scale(0.99);
+}
+
 .prod-card-info {
   flex: 1;
   min-width: 0;
@@ -1327,25 +1367,30 @@ html, body { width: 100%; max-width: 100vw; overflow-x: hidden; background: #0A0
   flex-direction: column;
   justify-content: space-between;
 }
+
 .prod-title {
   font-size: 0.95rem;
   font-weight: 800;
-  color: #fff;
+  color: #ffffff;
   margin: 0 0 0.25rem 0;
   text-transform: uppercase;
+  line-height: 1.3;
 }
+
 .prod-price {
   color: #D4AF37;
   font-weight: 700;
   font-size: 0.95rem;
   margin-bottom: 0.35rem;
 }
+
 .prod-desc {
-  color: #888;
+  color: #888888;
   font-size: 0.78rem;
   line-height: 1.4;
   margin: 0 0 0.75rem 0;
 }
+
 .prod-card-img {
   width: 85px;
   height: 85px;
@@ -1357,36 +1402,63 @@ html, body { width: 100%; max-width: 100vw; overflow-x: hidden; background: #0A0
   flex-shrink: 0;
   align-self: center;
 }
+
 .prod-card-img img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   display: block;
 }
+
 .btn-add-open {
   background: transparent;
   color: #D4AF37;
   border: 1px solid #D4AF37;
-  padding: 0.4rem 0.8rem;
+  padding: 0.4rem 0.85rem;
   font-size: 0.75rem;
   font-weight: 800;
-  border-radius: 4px;
+  border-radius: 6px;
   cursor: pointer;
   align-self: flex-start;
+  transition: all 0.2s ease;
 }
+
 .btn-add-open:hover {
   background: #D4AF37;
-  color: #000;
+  color: #000000;
 }
+
 .btn-solo-tavolo {
   font-size: 0.68rem;
   font-weight: 700;
-  color: #777;
-  border: 1px solid #333;
+  color: #777777;
+  border: 1px solid #333333;
   padding: 0.35rem 0.6rem;
   border-radius: 4px;
   display: inline-block;
   text-transform: uppercase;
+}
+
+@media (max-width: 680px) {
+  .product-cards-grid {
+    grid-template-columns: 1fr;
+    gap: 0.85rem;
+  }
+  .prod-card {
+    padding: 0.85rem;
+  }
+  .prod-card-img {
+    width: 78px;
+    height: 78px;
+    min-width: 78px;
+  }
+  .cat-pill {
+    font-size: 0.72rem;
+    padding: 0.45rem 0.95rem;
+  }
+  .cat-section-title {
+    font-size: 1.05rem;
+  }
 }
 
 /* Banner Chiamata Telefonica Dark & Gold */

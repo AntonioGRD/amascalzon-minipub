@@ -98,7 +98,9 @@
     if (btnTavolo) btnTavolo.onclick = (e) => { e.preventDefault(); selectTavolo(); };
   }
 
-  function renderCatalog() {
+  let selectedCategory = null;
+
+  function renderCatalog(categoryToSelect) {
     const catalog = document.getElementById('asporto-menu-catalog');
     const nav = document.getElementById('asporto-categories-nav');
     const menu = getMenu();
@@ -107,9 +109,15 @@
 
     const categories = Array.from(new Set(menu.map(i => i.category || 'MENU')));
 
+    if (categoryToSelect && categories.includes(categoryToSelect)) {
+      selectedCategory = categoryToSelect;
+    } else if (!selectedCategory || !categories.includes(selectedCategory)) {
+      selectedCategory = categories[0];
+    }
+
     if (nav) {
-      nav.innerHTML = categories.map((c, i) => `
-        <button type="button" class="cat-pill ${i === 0 ? 'active' : ''}" data-idx="${i}">${escapeHtml(c)}</button>
+      nav.innerHTML = categories.map(c => `
+        <button type="button" class="cat-pill ${c === selectedCategory ? 'active' : ''}" data-cat="${escapeHtml(c)}">${escapeHtml(c)}</button>
       `).join('');
 
       // Supporto scorrimento orizzontale con la rotellina del mouse su desktop
@@ -125,34 +133,36 @@
 
       nav.querySelectorAll('.cat-pill').forEach(btn => {
         btn.onclick = function () {
+          const cat = this.getAttribute('data-cat');
+          selectedCategory = cat;
           nav.querySelectorAll('.cat-pill').forEach(b => b.classList.remove('active'));
           this.classList.add('active');
           this.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
-          const idx = this.getAttribute('data-idx');
-          const sec = document.getElementById('menu-cat-sec-' + idx);
-          if (sec) {
-            const y = sec.getBoundingClientRect().top + window.pageYOffset - 120;
-            window.scrollTo({ top: y, behavior: 'smooth' });
-          }
+          renderFilteredItems();
         };
       });
     }
 
-    catalog.innerHTML = categories.map((cat, idx) => {
-      const items = menu.filter(x => (x.category || 'MENU') === cat);
-      return `
-        <div class="cat-section" id="menu-cat-sec-${idx}" style="margin-bottom: 2.5rem;">
-          <h3 class="cat-section-title">${escapeHtml(cat)}</h3>
+    function renderFilteredItems() {
+      const items = menu.filter(x => (x.category || 'MENU') === selectedCategory);
+      const countLabel = items.length === 1 ? '1 prodotto' : `${items.length} prodotti`;
+
+      catalog.innerHTML = `
+        <div class="cat-section" style="margin-bottom: 2.5rem;">
+          <div class="cat-header-wrap">
+            <h3 class="cat-section-title">${escapeHtml(selectedCategory)}</h3>
+            <span class="cat-badge-count">${countLabel}</span>
+          </div>
           <div class="product-cards-grid">
             ${items.map(item => {
               const isSpina = item.dineInOnly || (item.category && item.category.toLowerCase().includes('spina'));
-              const priceFmt = Number(item.price).toFixed(2).replace('.', ',') + ' €';
+              const priceFmt = item.price > 0 ? Number(item.price).toFixed(2).replace('.', ',') + ' €' : '';
               return `
                 <div class="prod-card" data-id="${item.id}">
                   <div class="prod-card-info">
                     <div>
                       <h4 class="prod-title">${escapeHtml(item.name)}</h4>
-                      <div class="prod-price">${priceFmt}</div>
+                      ${priceFmt ? `<div class="prod-price">${priceFmt}</div>` : ''}
                       <p class="prod-desc">${escapeHtml(item.description || '')}</p>
                     </div>
                     ${isSpina
@@ -171,24 +181,26 @@
           </div>
         </div>
       `;
-    }).join('');
 
-    catalog.querySelectorAll('.btn-add-item').forEach(btn => {
-      btn.onclick = function (e) {
-        e.stopPropagation();
-        const id = this.getAttribute('data-id');
-        const prod = menu.find(x => String(x.id) === String(id));
-        if (prod) openItemModal(prod);
-      };
-    });
+      catalog.querySelectorAll('.btn-add-item').forEach(btn => {
+        btn.onclick = function (e) {
+          e.stopPropagation();
+          const id = this.getAttribute('data-id');
+          const prod = menu.find(x => String(x.id) === String(id));
+          if (prod) openItemModal(prod);
+        };
+      });
 
-    catalog.querySelectorAll('.prod-card').forEach(card => {
-      card.onclick = function () {
-        const id = this.getAttribute('data-id');
-        const prod = menu.find(x => String(x.id) === String(id));
-        if (prod && !prod.dineInOnly) openItemModal(prod);
-      };
-    });
+      catalog.querySelectorAll('.prod-card').forEach(card => {
+        card.onclick = function () {
+          const id = this.getAttribute('data-id');
+          const prod = menu.find(x => String(x.id) === String(id));
+          if (prod && !prod.dineInOnly) openItemModal(prod);
+        };
+      });
+    }
+
+    renderFilteredItems();
   }
 
   // 1. Funzione aggiornamento visuale prezzo e quantità
