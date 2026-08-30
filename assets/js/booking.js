@@ -5,7 +5,7 @@
 (function () {
   'use strict';
 
-  const WHATSAPP_PHONE = '393293272738';
+  const WHATSAPP_PHONE = '393515928003';
   let cart = [];
   let currentProd = null;
   let currentQty = 1;

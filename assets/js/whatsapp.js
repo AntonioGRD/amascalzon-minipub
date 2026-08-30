@@ -5,7 +5,7 @@
 (function () {
   'use strict';
 
-  const PHONE_NUMBER = '393293272738';
+  const PHONE_NUMBER = '393515928003';
 
   function createWhatsAppUrl(messageText) {
     const encoded = encodeURIComponent(messageText);
