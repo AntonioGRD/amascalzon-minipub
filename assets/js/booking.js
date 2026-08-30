@@ -98,109 +98,160 @@
     if (btnTavolo) btnTavolo.onclick = (e) => { e.preventDefault(); selectTavolo(); };
   }
 
-  let selectedCategory = null;
-
-  function renderCatalog(categoryToSelect) {
+  function renderCatalog(categoryToOpen) {
     const catalog = document.getElementById('asporto-menu-catalog');
     const nav = document.getElementById('asporto-categories-nav');
     const menu = getMenu();
 
     if (!catalog || menu.length === 0) return;
 
-    const categories = Array.from(new Set(menu.map(i => i.category || 'MENU')));
-
-    if (categoryToSelect && categories.includes(categoryToSelect)) {
-      selectedCategory = categoryToSelect;
-    } else if (!selectedCategory || !categories.includes(selectedCategory)) {
-      selectedCategory = categories[0];
-    }
-
     if (nav) {
-      nav.innerHTML = categories.map(c => `
-        <button type="button" class="cat-pill ${c === selectedCategory ? 'active' : ''}" data-cat="${escapeHtml(c)}">${escapeHtml(c)}</button>
-      `).join('');
-
-      // Supporto scorrimento orizzontale con la rotellina del mouse su desktop
-      if (!nav.dataset.wheelBound) {
-        nav.dataset.wheelBound = 'true';
-        nav.addEventListener('wheel', function (e) {
-          if (e.deltaY !== 0) {
-            e.preventDefault();
-            nav.scrollLeft += e.deltaY;
-          }
-        }, { passive: false });
-      }
-
-      nav.querySelectorAll('.cat-pill').forEach(btn => {
-        btn.onclick = function () {
-          const cat = this.getAttribute('data-cat');
-          selectedCategory = cat;
-          nav.querySelectorAll('.cat-pill').forEach(b => b.classList.remove('active'));
-          this.classList.add('active');
-          this.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
-          renderFilteredItems();
-        };
-      });
+      nav.style.display = 'none';
     }
 
-    function renderFilteredItems() {
-      const items = menu.filter(x => (x.category || 'MENU') === selectedCategory);
-      const countLabel = items.length === 1 ? '1 prodotto' : `${items.length} prodotti`;
+    const categories = Array.from(new Set(menu.map(i => i.category || 'MENU')));
+    const defaultOpenCat = (categoryToOpen && categories.includes(categoryToOpen)) ? categoryToOpen : null;
 
-      catalog.innerHTML = `
-        <div class="cat-section" style="margin-bottom: 2.5rem;">
-          <div class="cat-header-wrap">
-            <h3 class="cat-section-title">${escapeHtml(selectedCategory)}</h3>
-            <span class="cat-badge-count">${countLabel}</span>
-          </div>
-          <div class="product-cards-grid">
-            ${items.map(item => {
-              const isSpina = item.dineInOnly || (item.category && item.category.toLowerCase().includes('spina'));
-              const priceFmt = item.price > 0 ? Number(item.price).toFixed(2).replace('.', ',') + ' €' : '';
-              return `
-                <div class="prod-card" data-id="${item.id}">
-                  <div class="prod-card-info">
-                    <div>
-                      <h4 class="prod-title">${escapeHtml(item.name)}</h4>
-                      ${priceFmt ? `<div class="prod-price">${priceFmt}</div>` : ''}
-                      <p class="prod-desc">${escapeHtml(item.description || '')}</p>
+    let html = `
+      <div class="menu-top-strip">
+        <span>COPERTO 2,00 € &bull; SERVIZIO AL TAVOLO & ASPORTO WHATSAPP</span>
+      </div>
+      <div class="menu-accordion-wrapper">
+    `;
+
+    categories.forEach((cat) => {
+      const items = menu.filter(x => (x.category || 'MENU') === cat);
+      const isOpen = Boolean(defaultOpenCat && cat === defaultOpenCat);
+      const countLabel = items.length;
+
+      html += `
+        <div class="menu-accordion-item ${isOpen ? 'is-open' : ''}" data-cat-name="${escapeHtml(cat)}">
+          <button type="button" class="menu-acc-header" aria-expanded="${isOpen ? 'true' : 'false'}">
+            <div class="acc-title-left">
+              <span class="acc-bullet-dot"></span>
+              <span class="acc-title-text">${escapeHtml(cat)}</span>
+            </div>
+            <div class="acc-title-right">
+              <span class="acc-count-pill">${countLabel}</span>
+              <svg class="acc-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </div>
+          </button>
+          
+          <div class="menu-acc-collapse" style="${isOpen ? 'display: block;' : 'display: none;'}">
+            <div class="menu-acc-body">
+              ${items.map(item => {
+                const isSpina = item.dineInOnly || (item.category && item.category.toLowerCase().includes('spina'));
+                const priceFmt = item.price > 0 ? Number(item.price).toFixed(2).replace('.', ',') + ' €' : '';
+                const hasIngredients = item.ingredients && Array.isArray(item.ingredients) && item.ingredients.length > 0;
+
+                return `
+                  <div class="menu-dish-card" data-id="${item.id}">
+                    <div class="dish-card-main">
+                      ${item.image ? `
+                        <div class="dish-img-box">
+                          <img src="${escapeHtml(item.image)}" alt="${escapeHtml(item.name)}" loading="lazy" onerror="this.parentElement.style.display='none';">
+                          <div class="dish-img-zoom" title="Visualizza Prodotto">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                              <circle cx="11" cy="11" r="8"></circle>
+                              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                              <line x1="11" y1="8" x2="11" y2="14"></line>
+                              <line x1="8" y1="11" x2="14" y2="11"></line>
+                            </svg>
+                          </div>
+                        </div>
+                      ` : ''}
+                      <div class="dish-content-box">
+                        <h4 class="dish-title">${escapeHtml(item.name)}</h4>
+                        ${item.description ? `<p class="dish-desc">${escapeHtml(item.description)}</p>` : ''}
+                      </div>
                     </div>
-                    ${isSpina
-                      ? `<span class="btn-solo-tavolo">SOLO SERVIZIO AL TAVOLO</span>`
-                      : `<button type="button" class="btn-add-open btn-add-item" data-id="${item.id}">+ AGGIUNGI</button>`
-                    }
+
+                    ${hasIngredients ? `
+                      <div class="dish-allergens-section">
+                        <div class="dish-allergens-label">&mdash; INGREDIENTI / ALLERGENI &mdash;</div>
+                        <div class="dish-allergens-list">
+                          ${item.ingredients.map(ing => `<span class="allergen-tag">&bull; ${escapeHtml(ing)}</span>`).join(' ')}
+                        </div>
+                      </div>
+                    ` : ''}
+
+                    <div class="dish-card-footer">
+                      ${isSpina
+                        ? `<span class="btn-solo-tavolo">SOLO SERVIZIO AL TAVOLO</span>`
+                        : `<button type="button" class="btn-aggiungi btn-add-item" data-id="${item.id}">AGGIUNGI +</button>`
+                      }
+                      ${priceFmt ? `<span class="dish-price-tag">${priceFmt}</span>` : ''}
+                    </div>
                   </div>
-                  ${item.image ? `
-                    <div class="prod-card-img">
-                      <img src="${escapeHtml(item.image)}" alt="${escapeHtml(item.name)}" loading="lazy" onerror="this.parentElement.style.display='none';">
-                    </div>
-                  ` : ''}
-                </div>
-              `;
-            }).join('')}
+                `;
+              }).join('')}
+            </div>
           </div>
         </div>
       `;
+    });
 
-      catalog.querySelectorAll('.btn-add-item').forEach(btn => {
-        btn.onclick = function (e) {
-          e.stopPropagation();
-          const id = this.getAttribute('data-id');
-          const prod = menu.find(x => String(x.id) === String(id));
-          if (prod) openItemModal(prod);
-        };
-      });
+    html += `</div>`;
+    catalog.innerHTML = html;
 
-      catalog.querySelectorAll('.prod-card').forEach(card => {
-        card.onclick = function () {
-          const id = this.getAttribute('data-id');
-          const prod = menu.find(x => String(x.id) === String(id));
-          if (prod && !prod.dineInOnly) openItemModal(prod);
-        };
-      });
-    }
+    // Gestione click accordion
+    catalog.querySelectorAll('.menu-acc-header').forEach(header => {
+      header.onclick = function (e) {
+        e.preventDefault();
+        const item = this.closest('.menu-accordion-item');
+        if (!item) return;
 
-    renderFilteredItems();
+        const isOpen = item.classList.contains('is-open');
+        const collapse = item.querySelector('.menu-acc-collapse');
+
+        if (isOpen) {
+          item.classList.remove('is-open');
+          this.setAttribute('aria-expanded', 'false');
+          if (collapse) collapse.style.display = 'none';
+        } else {
+          catalog.querySelectorAll('.menu-accordion-item').forEach(other => {
+            if (other !== item) {
+              other.classList.remove('is-open');
+              const otherHeader = other.querySelector('.menu-acc-header');
+              if (otherHeader) otherHeader.setAttribute('aria-expanded', 'false');
+              const otherCol = other.querySelector('.menu-acc-collapse');
+              if (otherCol) otherCol.style.display = 'none';
+            }
+          });
+
+          item.classList.add('is-open');
+          this.setAttribute('aria-expanded', 'true');
+          if (collapse) collapse.style.display = 'block';
+
+          setTimeout(() => {
+            const y = item.getBoundingClientRect().top + window.pageYOffset - 80;
+            window.scrollTo({ top: y, behavior: 'smooth' });
+          }, 100);
+        }
+      };
+    });
+
+    // Click Aggiungi
+    catalog.querySelectorAll('.btn-add-item').forEach(btn => {
+      btn.onclick = function (e) {
+        e.stopPropagation();
+        const id = this.getAttribute('data-id');
+        const prod = menu.find(x => String(x.id) === String(id));
+        if (prod) openItemModal(prod);
+      };
+    });
+
+    // Click Card
+    catalog.querySelectorAll('.menu-dish-card').forEach(card => {
+      card.onclick = function (e) {
+        if (e.target.closest('.btn-add-item')) return;
+        const id = this.getAttribute('data-id');
+        const prod = menu.find(x => String(x.id) === String(id));
+        if (prod && !prod.dineInOnly) openItemModal(prod);
+      };
+    });
   }
 
   // 1. Funzione aggiornamento visuale prezzo e quantità
