@@ -26,10 +26,18 @@ Sito web ufficiale e portale franchising per **AMASCALZON Mini Pub** — La pani
     ├── css/
     │   └── main.css            # Fogli di stile personalizzati (Vanilla CSS)
     ├── js/
-    │   └── main.js             # Gestione interazioni (menu mobile, form)
+    │   ├── menu-data.js        # Database e catalogo prodotti (burger, panini d'autore, ingredienti e prezzi)
+    │   ├── booking.js          # Modulo prenotazione tavolo al pub e gestione carrello asporto con WhatsApp
+    │   └── main.js             # Routing SPA tra viste, navigazione responsive, scroll e invio form FormSubmit
     └── images/
-        ├── locale-hero.jpg     # Foto hero del locale
-        └── panini-gourmet.jpg  # Foto panino gourmet
+        ├── logo.png            # Logo ufficiale AMASCALZON
+        ├── interno-locale.jpg  # Foto interna del format Mini Pub
+        ├── 2burger.jpg         # Immagine burger gourmet
+        ├── prodotto-finito1.jpg# Immagine panino d'autore artigianale
+        ├── prodotto-finito2.jpg# Immagine creazioni gourmet
+        ├── burgerina.jpg       # Immagine specialità Burgerina
+        ├── bonbon.jpg          # Immagine bon bon salati
+        └── immagine-amascalzon.webp # Immagine storica sezione Chi Siamo
 ```
 
 ---

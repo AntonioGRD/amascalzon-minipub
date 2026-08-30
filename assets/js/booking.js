@@ -112,10 +112,22 @@
         <button type="button" class="cat-pill ${i === 0 ? 'active' : ''}" data-idx="${i}">${escapeHtml(c)}</button>
       `).join('');
 
+      // Supporto scorrimento orizzontale con la rotellina del mouse su desktop
+      if (!nav.dataset.wheelBound) {
+        nav.dataset.wheelBound = 'true';
+        nav.addEventListener('wheel', function (e) {
+          if (e.deltaY !== 0) {
+            e.preventDefault();
+            nav.scrollLeft += e.deltaY;
+          }
+        }, { passive: false });
+      }
+
       nav.querySelectorAll('.cat-pill').forEach(btn => {
         btn.onclick = function () {
           nav.querySelectorAll('.cat-pill').forEach(b => b.classList.remove('active'));
           this.classList.add('active');
+          this.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
           const idx = this.getAttribute('data-idx');
           const sec = document.getElementById('menu-cat-sec-' + idx);
           if (sec) {

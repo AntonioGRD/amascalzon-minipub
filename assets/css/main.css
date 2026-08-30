@@ -43,6 +43,24 @@ body {
   background-color: var(--bg-body);
   color: var(--text-main);
   line-height: 1.6;
+  scrollbar-width: thin;
+  scrollbar-color: #333333 #0a0a0a;
+}
+
+/* Scrollbar personalizzata coerente con il tema scuro / oro */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #0a0a0a;
+}
+::-webkit-scrollbar-thumb {
+  background: #282828;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #D4AF37;
 }
 
 .container {
@@ -1214,27 +1232,65 @@ html, body { width: 100%; max-width: 100vw; overflow-x: hidden; background: #0A0
 /* 4. Catalogo Menù Asporto Stile Glovo */
 .asporto-categories-nav {
   display: flex;
-  gap: 0.5rem;
+  gap: 0.6rem;
   overflow-x: auto;
-  padding: 0.8rem 0;
+  padding: 0.6rem 0.2rem 0.9rem 0.2rem;
   margin-bottom: 1.5rem;
   -webkit-overflow-scrolling: touch;
+  scroll-behavior: smooth;
+  scrollbar-width: thin;
+  scrollbar-color: #D4AF37 #141414;
 }
+
+.asporto-categories-nav::-webkit-scrollbar {
+  height: 5px;
+}
+
+.asporto-categories-nav::-webkit-scrollbar-track {
+  background: #141414;
+  border-radius: 10px;
+}
+
+.asporto-categories-nav::-webkit-scrollbar-thumb {
+  background: #333333;
+  border-radius: 10px;
+  border: 1px solid #141414;
+  transition: background 0.2s ease;
+}
+
+.asporto-categories-nav::-webkit-scrollbar-thumb:hover {
+  background: #D4AF37;
+}
+
 .cat-pill {
-  background: #181818;
-  color: #fff;
-  border: 1px solid #333;
-  padding: 0.45rem 1rem;
-  border-radius: 20px;
+  background: #161616;
+  color: #e2e8f0;
+  border: 1px solid #2e2e2e;
+  padding: 0.5rem 1.1rem;
+  border-radius: 25px;
   font-weight: 700;
-  font-size: 0.75rem;
+  font-size: 0.76rem;
+  letter-spacing: 0.4px;
   cursor: pointer;
   white-space: nowrap;
+  flex-shrink: 0;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  user-select: none;
 }
+
+.cat-pill:hover {
+  border-color: #D4AF37;
+  color: #D4AF37;
+  background: #202020;
+  transform: translateY(-1px);
+}
+
 .cat-pill.active {
   background: #D4AF37;
-  color: #000;
+  color: #000000;
   border-color: #D4AF37;
+  box-shadow: 0 4px 14px rgba(212, 175, 55, 0.35);
+  font-weight: 800;
 }
 .cat-section-title {
   color: #D4AF37;
