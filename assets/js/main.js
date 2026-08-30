@@ -112,9 +112,11 @@
         }
 
         const formData = new FormData(form);
+        const formAction = form.getAttribute('action') || 'https://formsubmit.co/INSERISCI_IL_TOKEN_QUI';
+        const ajaxUrl = formAction.replace('formsubmit.co/', 'formsubmit.co/ajax/');
 
         try {
-          const response = await fetch('https://formsubmit.co/ajax/mascoloalfy@libero.it', {
+          const response = await fetch(ajaxUrl, {
             method: 'POST',
             headers: {
               'Accept': 'application/json'
@@ -135,7 +137,7 @@
         } catch (error) {
           console.error('Errore invio form:', error);
           if (formFeedback) {
-            formFeedback.textContent = 'Si è verificato un problema con l\'invio. Puoi contattarci direttamente a: mascoloalfy@libero.it';
+            formFeedback.textContent = 'Si è verificato un problema con l\'invio. Puoi contattarci direttamente tramite i nostri recapiti ufficiali.';
             formFeedback.classList.add('error');
             formFeedback.style.display = 'block';
           }
