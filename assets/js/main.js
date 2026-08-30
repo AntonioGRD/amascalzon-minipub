@@ -90,63 +90,15 @@
     showSection(currentHash || 'view-home');
   });
 
-  // Invio Candidatura Franchising
+  // Invio Candidatura Franchising (Invio nativo POST per supporto Captcha & Attivazione FormSubmit)
   function setupLeadForm() {
     const form = document.getElementById('lead-form');
     const submitBtn = document.getElementById('submit-btn');
-    const formFeedback = document.getElementById('form-feedback');
 
-    if (form) {
-      form.addEventListener('submit', async function (e) {
-        e.preventDefault();
-
-        const originalBtnText = submitBtn ? submitBtn.innerText : 'Invia Candidatura Franchising';
-        if (submitBtn) {
-          submitBtn.disabled = true;
-          submitBtn.innerText = 'Invio in corso...';
-        }
-
-        if (formFeedback) {
-          formFeedback.style.display = 'none';
-          formFeedback.className = 'form-feedback';
-        }
-
-        const formData = new FormData(form);
-        const formAction = form.getAttribute('action') || 'https://formsubmit.co/INSERISCI_IL_TOKEN_QUI';
-        const ajaxUrl = formAction.replace('formsubmit.co/', 'formsubmit.co/ajax/');
-
-        try {
-          const response = await fetch(ajaxUrl, {
-            method: 'POST',
-            headers: {
-              'Accept': 'application/json'
-            },
-            body: formData
-          });
-
-          if (response.ok) {
-            if (formFeedback) {
-              formFeedback.textContent = 'Grazie! La tua candidatura è stata inviata con successo. Ti ricontatteremo a breve.';
-              formFeedback.classList.add('success');
-              formFeedback.style.display = 'block';
-            }
-            form.reset();
-          } else {
-            throw new Error('Errore durante l\'invio');
-          }
-        } catch (error) {
-          console.error('Errore invio form:', error);
-          if (formFeedback) {
-            formFeedback.textContent = 'Si è verificato un problema con l\'invio. Puoi contattarci direttamente tramite i nostri recapiti ufficiali.';
-            formFeedback.classList.add('error');
-            formFeedback.style.display = 'block';
-          }
-        } finally {
-          if (submitBtn) {
-            submitBtn.disabled = false;
-            submitBtn.innerText = originalBtnText;
-          }
-        }
+    if (form && submitBtn) {
+      form.addEventListener('submit', function () {
+        submitBtn.disabled = true;
+        submitBtn.innerText = 'Invio in corso...';
       });
     }
   }
