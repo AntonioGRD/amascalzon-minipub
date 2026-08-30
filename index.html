@@ -3,39 +3,49 @@
 
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AMASCALZON Mini Pub | Franchising Paninoteca Gourmet</title>
-  <meta name="description"
-    content="Apri il tuo AMASCALZON Mini Pub: investimento da 9.900€, senza canna fumaria e gestione a sole 2 persone.">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>AMASCALZON Pub & Franchising Mini Pub</title>
+  <meta name="description" content="AMASCALZON Pub - Via Stabia 210, Sant'Antonio Abate (NA) e Franchising Mini Pub.">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
-    rel="stylesheet">
-
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/main.css">
 </head>
 
 <body>
 
-  <!-- Header / Navigazione a 4 Voci -->
+  <!-- Header Sticky con Logo e Social -->
   <header class="header">
     <div class="container nav-container">
-      <a href="#home" class="logo">
-        <img src="assets/images/logo.png" alt="AMASCALZON Mini Pub" class="logo-img">
-      </a>
+      <div class="logo-wrapper">
+        <a href="#view-home" class="logo" data-target="view-home">
+          <img src="assets/images/logo.png" alt="AMASCALZON" class="logo-img">
+        </a>
+        <div class="header-social-links">
+          <a href="https://www.instagram.com/amascalzonburgerhouse/" target="_blank" rel="noopener" class="hdr-social-link">INSTAGRAM</a>
+          <span class="hdr-social-sep">&bull;</span>
+          <a href="https://www.tiktok.com/@amascalzonburgerhouse" target="_blank" rel="noopener" class="hdr-social-link">TIKTOK</a>
+        </div>
+      </div>
       <nav class="nav" id="main-nav">
         <ul>
-          <li><a href="#home">Home</a></li>
-          <li><a href="#chi-siamo">Chi Siamo</a></li>
-          <li><a href="#franchising">Franchising</a></li>
-          <li><a href="#contatti" class="btn btn-nav">Contatti</a></li>
+          <li><a href="#view-prenotazioni" data-target="view-prenotazioni">AMASCALZON PUB</a></li>
+          <li><a href="#view-franchising" data-target="view-franchising">APRI IL TUO MINI PUB</a></li>
+          <li><a href="#view-chisiamo" data-target="view-chisiamo">CHI SIAMO</a></li>
+          <li><a href="#view-contatti" data-target="view-contatti" class="btn btn-nav">CONTATTI</a></li>
         </ul>
       </nav>
-      <button class="menu-toggle" id="menu-toggle" aria-label="Menu">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-          stroke-linejoin="round">
+      <button type="button" class="header-cart-btn" id="btn-header-cart" aria-label="Carrello">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="9" cy="21" r="1"></circle>
+          <circle cx="20" cy="21" r="1"></circle>
+          <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+        </svg>
+        <span class="header-cart-badge" id="header-cart-badge">0</span>
+      </button>
+      <button class="menu-toggle" id="menu-toggle" aria-label="Menu Mobile">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
           <line x1="3" y1="12" x2="21" y2="12"></line>
           <line x1="3" y1="6" x2="21" y2="6"></line>
           <line x1="3" y1="18" x2="21" y2="18"></line>
@@ -45,487 +55,669 @@
   </header>
 
   <main>
-    <!-- 1. HOME: Hero Section -->
-    <section class="hero" id="home">
-      <div class="container hero-grid">
-        <div class="hero-content">
-          <span class="badge">Format Rivoluzionario</span>
-          <h1>LA PANINOTECA GOURMET <span class="highlight">SENZA CUCINA</span></h1>
-          <p class="hero-desc">
-            Apri in soli 20–40 mq con circa 9.900 €. Nessuna canna fumaria, gestione per sole 2 persone e servizio al
-            cliente in 20 secondi.
-          </p>
-          <div class="hero-actions">
-            <a href="#franchising" class="btn btn-primary">Apri il tuo Mini Pub</a>
-            <a href="#chi-siamo" class="btn btn-outline">La Nostra Storia</a>
+    <!-- 1. VISTA HOME -->
+    <div id="view-home" class="site-section is-visible">
+      <section class="hero hero-fullscreen">
+        <div class="container hero-fullscreen-container">
+          <div class="hero-header text-center">
+            <span class="badge">DUE ANIME, UN SOLO MARCHIO</span>
+            <h1>BENVENUTO NEL MONDO <span class="highlight">AMASCALZON</span></h1>
+            <p class="hero-desc">Scegli tra il nostro Pub storico con cucina o l'opportunità di affiliazione.</p>
+          </div>
+
+          <div class="hero-split-cards">
+            <!-- Card Pub Storico -->
+            <div class="hero-split-card pub-card">
+              <span class="split-card-tag">SEDE STORICA CON CUCINA</span>
+              <h2>VUOI MANGIARE DA NOI?</h2>
+              <p>Vieni a trovarci in <strong>Via Stabia 210, Sant'Antonio Abate (NA)</strong>. Hamburger d'autore, servizio al tavolo e asporto.</p>
+              <div class="split-card-actions">
+                <a href="#view-prenotazioni" data-target="view-prenotazioni" class="btn btn-primary btn-block">SCOPRI IL MENU E PRENOTA</a>
+              </div>
+            </div>
+
+            <!-- Card Franchising -->
+            <div class="hero-split-card franchising-card">
+              <span class="split-card-tag">OPPORTUNITÀ IMPRENDITORIALE</span>
+              <h2>VUOI APRIRE UN LOCALE?</h2>
+              <p>Paninoteca gourmet compatta (20–40 mq), senza canna fumaria, gestione a 2 persone e investimento da ~9.900 EUR.</p>
+              <div class="split-card-actions">
+                <a href="#view-franchising" data-target="view-franchising" class="btn btn-primary btn-block">APRI IL TUO MINI PUB</a>
+              </div>
+            </div>
           </div>
         </div>
-        <div class="hero-image-wrap">
-          <img src="assets/images/esterno-locale.jpg" alt="AMASCALZON Mini Pub Esterno Locale" class="hero-img">
-        </div>
+      </section>
+    </div>
+
+    <!-- 2. VISTA PRENOTAZIONI & MENU PUB -->
+    <div id="view-prenotazioni" class="site-section">
+      <div class="container" style="padding-top: 1rem;">
+        <button type="button" class="btn-back-home" data-target="view-home">&larr; TORNA ALLA SELEZIONE PRINCIPALE</button>
       </div>
-    </section>
+      <section class="booking-section">
+        <div class="container">
+          <div class="booking-header">
+            <span class="section-tag">Sede Storica con Cucina</span>
+            <h2>AMASCALZON PUB - VIA STABIA 210, SANT'ANTONIO ABATE (NA)</h2>
+            <p>Prenota il tuo tavolo in sala o consulta il menù per ordinare i piatti da asporto.</p>
+          </div>
 
-    <!-- Metrics Strip -->
-    <section class="metrics-bar">
-      <div class="container metrics-grid">
-        <div class="metric-card">
-          <span class="metric-num">~9.900 €</span>
-          <span class="metric-txt">Investimento Iniziale</span>
+          <!-- Bivio Scelta -->
+          <div class="booking-choice-container">
+            <div class="booking-choice-card" id="btn-choice-tavolo">
+              <span class="choice-badge">SERVIZIO AL LOCALE</span>
+              <div class="choice-title">PRENOTA UN TAVOLO</div>
+              <p class="choice-desc">Riserva il tuo tavolo per cena con conferma rapida su WhatsApp.</p>
+              <div class="choice-action-text">SELEZIONA SERVIZIO TAVOLO &rarr;</div>
+            </div>
+
+            <div class="booking-choice-card active" id="btn-choice-asporto">
+              <span class="choice-badge">RITIRO AL PUB & CONSULTAZIONE</span>
+              <div class="choice-title">SCOPRI IL MENÙ & ASPORTO</div>
+              <p class="choice-desc">Sfoglia il catalogo completo, personalizza gli ingredienti e ordina con ritiro rapido.</p>
+              <div class="choice-action-text">SFOGLIA MENÙ & ORDINA &rarr;</div>
+            </div>
+          </div>
+
+          <!-- PANE TAVOLO -->
+          <div class="booking-pane" id="tab-booking-tavolo" style="display: none;">
+            <div class="tavolo-card-box">
+              <h3>PRENOTAZIONE TAVOLO</h3>
+              <p class="box-subtitle">Via Stabia 210, Sant'Antonio Abate (NA) &bull; WhatsApp: +39 329 327 2738</p>
+              <form id="form-prenotazione-tavolo">
+                <div class="booking-form-row">
+                  <div class="booking-form-group">
+                    <label for="tavolo-nome">Nome e Cognome *</label>
+                    <input type="text" id="tavolo-nome" class="booking-form-control" placeholder="Mario Rossi" required>
+                  </div>
+                  <div class="booking-form-group">
+                    <label for="tavolo-telefono">Numero di Telefono *</label>
+                    <input type="tel" id="tavolo-telefono" class="booking-form-control" placeholder="+39 333 1234567" required>
+                  </div>
+                </div>
+                <div class="booking-form-row">
+                  <div class="booking-form-group">
+                    <label for="tavolo-data">Data *</label>
+                    <input type="date" id="tavolo-data" class="booking-form-control" required>
+                  </div>
+                  <div class="booking-form-group">
+                    <label for="tavolo-ora">Orario Cena *</label>
+                    <select id="tavolo-ora" class="booking-form-control" required>
+                      <option value="19:30">19:30</option>
+                      <option value="20:00">20:00</option>
+                      <option value="20:30" selected>20:30</option>
+                      <option value="21:00">21:00</option>
+                      <option value="21:30">21:30</option>
+                      <option value="22:00">22:00</option>
+                      <option value="22:30">22:30</option>
+                      <option value="23:00">23:00</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="booking-form-group">
+                  <label for="tavolo-coperti">Numero di Persone *</label>
+                  <select id="tavolo-coperti" class="booking-form-control" required>
+                    <option value="1">1 Persona</option>
+                    <option value="2" selected>2 Persone</option>
+                    <option value="3">3 Persone</option>
+                    <option value="4">4 Persone</option>
+                    <option value="5">5 Persone</option>
+                    <option value="6">6 Persone</option>
+                    <option value="7">7 Persone</option>
+                    <option value="8">8 Persone</option>
+                    <option value="9">9 Persone</option>
+                    <option value="10">10 Persone</option>
+                    <option value="11+">11+ Persone</option>
+                  </select>
+                </div>
+                <div class="booking-form-group">
+                  <label for="tavolo-note">Note / Richieste Speciali</label>
+                  <textarea id="tavolo-note" class="booking-form-control" rows="2" placeholder="Es. Seggiolone, allergie..."></textarea>
+                </div>
+                <button type="submit" class="btn-whatsapp-submit">CONFERMA TAVOLO SU WHATSAPP</button>
+              </form>
+            </div>
+          </div>
+
+          <!-- PANE ASPORTO & MENU -->
+          <div class="booking-pane" id="tab-booking-asporto" style="display: block;">
+            <div class="asporto-catalog-wrapper">
+              <div id="asporto-categories-nav" class="asporto-categories-nav"></div>
+              <div id="asporto-menu-catalog"></div>
+            </div>
+          </div>
+
+          <!-- Banner Telefono -->
+          <div class="bottom-call-banner">
+            <div>
+              <strong style="color: #fff; font-size: 0.95rem; display: block; margin-bottom: 0.25rem;">PREFERISCI ORDINARE TELEFONICAMENTE?</strong>
+              <p style="margin: 0; font-size: 0.85rem; color: #888;">Il nostro staff è a tua completa disposizione.</p>
+            </div>
+            <a href="tel:+393293272738" class="btn-primary" style="padding: 0.6rem 1.2rem; font-size: 0.85rem; white-space: nowrap;">CHIAMACI: +39 329 327 2738</a>
+          </div>
         </div>
-        <div class="metric-card">
-          <span class="metric-num">20 SEC</span>
-          <span class="metric-txt">Tempo di Servizio</span>
-        </div>
-        <div class="metric-card">
-          <span class="metric-num">0 CANNA</span>
-          <span class="metric-txt">Nessuna Canna Fumaria</span>
-        </div>
-        <div class="metric-card">
-          <span class="metric-num">2 PERSONE</span>
-          <span class="metric-txt">Gestione Ottimale Staff</span>
-        </div>
+      </section>
+    </div>
+
+    <!-- 3. VISTA FRANCHISING: MINI PUB -->
+    <div id="view-franchising" class="site-section">
+      <div class="container" style="padding-top: 1.5rem;">
+        <button type="button" class="btn-back-home" data-target="view-home">&larr; TORNA ALLA SELEZIONE PRINCIPALE</button>
       </div>
-    </section>
-
-    <!-- 2. CHI SIAMO -->
-    <section class="section-padding bg-darker" id="chi-siamo">
-      <div class="container split-grid">
-        <div class="split-img-box">
-          <img src="assets/images/immagine-amascalzon.webp" alt="AMASCALZON Storia ed Eccellenza" class="rounded-img">
-        </div>
-        <div class="split-content">
-          <span class="section-tag">Chi Siamo</span>
-          <h2>Oltre 20 anni di eccellenza e passione food</h2>
-          <p>
-            AMASCALZON nasce a Sant'Antonio Abate (NA) come pub dedicato ai panini gourmet, diventando un solido punto
-            di riferimento per migliaia di clienti grazie a materie prime selezionate e continua ricerca.
-          </p>
-          <p>
-            L'esperienza maturata ci ha spinti a risolvere i veri problemi della ristorazione moderna: alti costi di
-            gestione, reperibilità del personale e complessità operative. Da qui prende vita <strong>AMASCALZON Mini
-              Pub</strong>.
-          </p>
-          <div class="feature-pill-list">
-            <div class="pill">
-              <svg class="pill-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
-                stroke-linecap="round" stroke-linejoin="round">
-                <polyline points="20 6 9 17 4 12"></polyline>
-              </svg>
-              <span>Laboratorio centrale proprietario</span>
-            </div>
-            <div class="pill">
-              <svg class="pill-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
-                stroke-linecap="round" stroke-linejoin="round">
-                <polyline points="20 6 9 17 4 12"></polyline>
-              </svg>
-              <span>Ricette standardizzate e shelf-life 15 giorni</span>
-            </div>
-            <div class="pill">
-              <svg class="pill-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
-                stroke-linecap="round" stroke-linejoin="round">
-                <polyline points="20 6 9 17 4 12"></polyline>
-              </svg>
-              <span>Massima qualità replicabile ovunque</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- 3. FRANCHISING (Il Format, Confronto e Cosa Offriamo) -->
-    <section class="section-padding" id="franchising">
-      <div class="container">
-        <div class="text-center mb-5">
-          <span class="section-tag">Opportunità di Business</span>
-          <h2>Perché Scegliere AMASCALZON Mini Pub</h2>
-          <p class="subtitle">Un modello chiavi in mano ad alta marginalità e bassi costi di esercizio.</p>
-        </div>
-
-        <!-- Confronto Tradizionale vs AMASCALZON -->
-        <div class="comparison-grid">
-          <div class="comp-box standard">
-            <h3>Paninoteca Classica</h3>
-            <ul>
-              <li>
-                <span class="icon-indicator icon-indicator-danger">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
-                    stroke-linejoin="round">
-                    <line x1="18" y1="6" x2="6" y2="18"></line>
-                    <line x1="6" y1="6" x2="18" y2="18"></line>
-                  </svg>
-                </span>
-                <span>Investimenti pesanti e cucine costose</span>
-              </li>
-              <li>
-                <span class="icon-indicator icon-indicator-danger">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
-                    stroke-linejoin="round">
-                    <line x1="18" y1="6" x2="6" y2="18"></line>
-                    <line x1="6" y1="6" x2="18" y2="18"></line>
-                  </svg>
-                </span>
-                <span>Canna fumaria e vincoli burocratici</span>
-              </li>
-              <li>
-                <span class="icon-indicator icon-indicator-danger">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
-                    stroke-linejoin="round">
-                    <line x1="18" y1="6" x2="6" y2="18"></line>
-                    <line x1="6" y1="6" x2="18" y2="18"></line>
-                  </svg>
-                </span>
-                <span>5 o 6 persone di staff specializzato</span>
-              </li>
-              <li>
-                <span class="icon-indicator icon-indicator-danger">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
-                    stroke-linejoin="round">
-                    <line x1="18" y1="6" x2="6" y2="18"></line>
-                    <line x1="6" y1="6" x2="18" y2="18"></line>
-                  </svg>
-                </span>
-                <span>Code e lunghi tempi di preparazione</span>
-              </li>
-              <li>
-                <span class="icon-indicator icon-indicator-danger">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
-                    stroke-linejoin="round">
-                    <line x1="18" y1="6" x2="6" y2="18"></line>
-                    <line x1="6" y1="6" x2="18" y2="18"></line>
-                  </svg>
-                </span>
-                <span>Scarti di magazzino e sprechi</span>
-              </li>
-            </ul>
-          </div>
-
-          <div class="comp-box highlighted">
-            <div class="best-badge">Formula AMASCALZON</div>
-            <h3>Mini Pub</h3>
-            <ul>
-              <li>
-                <span class="icon-indicator icon-indicator-success">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
-                    stroke-linejoin="round">
-                    <polyline points="20 6 9 17 4 12"></polyline>
-                  </svg>
-                </span>
-                <span>Investimento accessibile da ~9.900 €</span>
-              </li>
-              <li>
-                <span class="icon-indicator icon-indicator-success">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
-                    stroke-linejoin="round">
-                    <polyline points="20 6 9 17 4 12"></polyline>
-                  </svg>
-                </span>
-                <span>Nessuna canna fumaria (locali 20–40 mq)</span>
-              </li>
-              <li>
-                <span class="icon-indicator icon-indicator-success">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
-                    stroke-linejoin="round">
-                    <polyline points="20 6 9 17 4 12"></polyline>
-                  </svg>
-                </span>
-                <span>Gestione snella con sole 2 persone</span>
-              </li>
-              <li>
-                <span class="icon-indicator icon-indicator-success">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
-                    stroke-linejoin="round">
-                    <polyline points="20 6 9 17 4 12"></polyline>
-                  </svg>
-                </span>
-                <span>Servizio in 20 secondi anche nei picchi</span>
-              </li>
-              <li>
-                <span class="icon-indicator icon-indicator-success">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
-                    stroke-linejoin="round">
-                    <polyline points="20 6 9 17 4 12"></polyline>
-                  </svg>
-                </span>
-                <span>Zero sprechi: prodotti pronti all'uso</span>
-              </li>
-            </ul>
-          </div>
-        </div>
-
-        <!-- Griglia Servizi Inclusi -->
-        <div class="services-wrapper mt-5">
-          <h3 class="text-center mb-4">Cosa include l'affiliazione</h3>
-          <div class="services-grid">
-            <div class="service-card">
-              <div class="icon-wrapper">
-                <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                  stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"></path>
-                  <circle cx="12" cy="10" r="3"></circle>
-                </svg>
-              </div>
-              <h4>Esclusiva Territoriale</h4>
-              <p>Protezione della tua area commerciale di competenza.</p>
-            </div>
-
-            <div class="service-card">
-              <div class="icon-wrapper">
-                <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                  stroke-linecap="round" stroke-linejoin="round">
-                  <path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"></path>
-                  <path d="M12 9v4"></path>
-                  <path d="M12 17h.01"></path>
-                </svg>
-              </div>
-              <h4>Progettazione & Arredi</h4>
-              <p>Fornitura completa di banco vendita, area snack e attrezzature inox.</p>
-            </div>
-
-            <div class="service-card">
-              <div class="icon-wrapper">
-                <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                  stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1-2.5-2.5Z"></path>
-                  <path d="M6 6h10"></path>
-                  <path d="M6 10h10"></path>
-                  <path d="M6 14h6"></path>
-                </svg>
-              </div>
-              <h4>Formazione & Affiancamento</h4>
-              <p>Manuali operativi e supporto diretto all'avviamento.</p>
-            </div>
-
-            <div class="service-card">
-              <div class="icon-wrapper">
-                <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                  stroke-linecap="round" stroke-linejoin="round">
-                  <rect width="20" height="14" x="2" y="3" rx="2"></rect>
-                  <line x1="8" y1="21" x2="16" y2="21"></line>
-                  <line x1="12" y1="17" x2="12" y2="21"></line>
-                </svg>
-              </div>
-              <h4>Software Gestionale</h4>
-              <p>Piattaforma di cassa, scorte e gestione del punto vendita.</p>
-            </div>
-
-            <div class="service-card">
-              <div class="icon-wrapper">
-                <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                  stroke-linecap="round" stroke-linejoin="round">
-                  <path
-                    d="M12 2a5 5 0 0 0-5 5v1H4a2 2 0 0 0-2 2v2a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-2a2 2 0 0 0-2-2h-3V7a5 5 0 0 0-5-5Z">
-                  </path>
-                  <path d="M6 14v4a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2v-4"></path>
-                  <line x1="10" y1="10" x2="14" y2="10"></line>
-                </svg>
-              </div>
-              <h4>Fornitura Centralizzata</h4>
-              <p>Prodotti artigianali sempre freschi e menù costantemente aggiornato.</p>
-            </div>
-
-            <div class="service-card">
-              <div class="icon-wrapper">
-                <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                  stroke-linecap="round" stroke-linejoin="round">
-                  <path d="m3 11 18-5v12L3 14v-3z"></path>
-                  <path d="M11.6 16.8a3 3 0 1 1-5.8-1.6"></path>
-                </svg>
-              </div>
-              <h4>Marketing & Lancio</h4>
-              <p>Materiale promozionale e strategie di comunicazione della rete.</p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Showcase Locale & Prodotti Gourmet Gallery -->
-        <div class="gallery-wrapper mt-5">
+      <section class="section-padding" id="franchising">
+        <div class="container">
           <div class="text-center mb-5">
-            <span class="section-tag">Design & Menu</span>
-            <h3>Il Locale e le Nostre Creazioni Gourmet</h3>
-            <p class="subtitle">Uno spazio compatto ed efficiente con una gamma di prodotti ad alto valore percepito.
+            <span class="section-tag">Opportunità Imprenditoriale</span>
+            <h2>AMASCALZON MINI PUB - IL TUO NUOVO LOCALE</h2>
+            <p class="subtitle">La paninoteca gourmet senza canna fumaria: compatto (20–40 mq), gestione a 2 persone e investimento da ~9.900 EUR.</p>
+          </div>
+
+          <!-- Metrics Strip Mini Pub -->
+          <div class="metrics-grid mb-5">
+            <div class="metric-card">
+              <span class="metric-num">~9.900 €</span>
+              <span class="metric-txt">Investimento Iniziale</span>
+            </div>
+            <div class="metric-card">
+              <span class="metric-num">20 SEC</span>
+              <span class="metric-txt">Tempo di Servizio</span>
+            </div>
+            <div class="metric-card">
+              <span class="metric-num">0 CANNA</span>
+              <span class="metric-txt">Nessuna Canna Fumaria</span>
+            </div>
+            <div class="metric-card">
+              <span class="metric-num">2 PERSONE</span>
+              <span class="metric-txt">Gestione Ottimale Staff</span>
+            </div>
+          </div>
+
+          <!-- Confronto Paninoteca Classica vs AMASCALZON Mini Pub -->
+          <div class="comparison-grid">
+            <div class="comp-box standard">
+              <h3>Paninoteca Classica</h3>
+              <ul>
+                <li>
+                  <span class="icon-indicator icon-indicator-danger">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                      <line x1="18" y1="6" x2="6" y2="18"></line>
+                      <line x1="6" y1="6" x2="18" y2="18"></line>
+                    </svg>
+                  </span>
+                  <span>Investimenti pesanti e cucine costose</span>
+                </li>
+                <li>
+                  <span class="icon-indicator icon-indicator-danger">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                      <line x1="18" y1="6" x2="6" y2="18"></line>
+                      <line x1="6" y1="6" x2="18" y2="18"></line>
+                    </svg>
+                  </span>
+                  <span>Canna fumaria e vincoli burocratici</span>
+                </li>
+                <li>
+                  <span class="icon-indicator icon-indicator-danger">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                      <line x1="18" y1="6" x2="6" y2="18"></line>
+                      <line x1="6" y1="6" x2="18" y2="18"></line>
+                    </svg>
+                  </span>
+                  <span>5 o 6 persone di staff specializzato</span>
+                </li>
+                <li>
+                  <span class="icon-indicator icon-indicator-danger">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                      <line x1="18" y1="6" x2="6" y2="18"></line>
+                      <line x1="6" y1="6" x2="18" y2="18"></line>
+                    </svg>
+                  </span>
+                  <span>Code e lunghi tempi di preparazione</span>
+                </li>
+                <li>
+                  <span class="icon-indicator icon-indicator-danger">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                      <line x1="18" y1="6" x2="6" y2="18"></line>
+                      <line x1="6" y1="6" x2="18" y2="18"></line>
+                    </svg>
+                  </span>
+                  <span>Scarti di magazzino e sprechi</span>
+                </li>
+              </ul>
+            </div>
+
+            <div class="comp-box highlighted">
+              <div class="best-badge">Formula AMASCALZON</div>
+              <h3>Mini Pub</h3>
+              <ul>
+                <li>
+                  <span class="icon-indicator icon-indicator-success">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                      <polyline points="20 6 9 17 4 12"></polyline>
+                    </svg>
+                  </span>
+                  <span>Investimento accessibile da ~9.900 €</span>
+                </li>
+                <li>
+                  <span class="icon-indicator icon-indicator-success">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                      <polyline points="20 6 9 17 4 12"></polyline>
+                    </svg>
+                  </span>
+                  <span>Nessuna canna fumaria (locali 20–40 mq)</span>
+                </li>
+                <li>
+                  <span class="icon-indicator icon-indicator-success">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                      <polyline points="20 6 9 17 4 12"></polyline>
+                    </svg>
+                  </span>
+                  <span>Gestione snella con sole 2 persone</span>
+                </li>
+                <li>
+                  <span class="icon-indicator icon-indicator-success">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                      <polyline points="20 6 9 17 4 12"></polyline>
+                    </svg>
+                  </span>
+                  <span>Servizio in 20 secondi anche nei picchi</span>
+                </li>
+                <li>
+                  <span class="icon-indicator icon-indicator-success">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                      <polyline points="20 6 9 17 4 12"></polyline>
+                    </svg>
+                  </span>
+                  <span>Zero sprechi: prodotti pronti all'uso</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Cosa Include l'Affiliazione (6 Servizi) -->
+          <div class="services-wrapper mt-5">
+            <div class="text-center mb-5">
+              <span class="section-tag">Pacchetto Chiavi in Mano</span>
+              <h3>Cosa Include l'Affiliazione</h3>
+              <p class="subtitle">Tutto ciò di cui hai bisogno per avviare e gestire la tua attività con successo.</p>
+            </div>
+
+            <div class="services-grid">
+              <div class="service-card">
+                <div class="icon-wrapper">
+                  <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                  </svg>
+                </div>
+                <h4>Esclusiva Territoriale</h4>
+                <p>Protezione della tua area commerciale per garantirti la massima densità di clienti senza concorrenza interna.</p>
+              </div>
+
+              <div class="service-card">
+                <div class="icon-wrapper">
+                  <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
+                    <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
+                    <line x1="12" y1="22.08" x2="12" y2="12"></line>
+                  </svg>
+                </div>
+                <h4>Allestimento & Attrezzature</h4>
+                <p>Layout modulare studiato al millimetro: banco vendita, area snack e macchinari inox senza canna fumaria.</p>
+              </div>
+
+              <div class="service-card">
+                <div class="icon-wrapper">
+                  <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1-2.5-2.5Z"></path>
+                    <path d="M6 6h10"></path>
+                    <path d="M6 10h10"></path>
+                  </svg>
+                </div>
+                <h4>Formazione & Know-How</h4>
+                <p>Manuali operativi completi e affiancamento costante pre e post apertura per rendere il punto vendita autonomo.</p>
+              </div>
+
+              <div class="service-card">
+                <div class="icon-wrapper">
+                  <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect width="20" height="14" x="2" y="3" rx="2"></rect>
+                    <line x1="8" y1="21" x2="16" y2="21"></line>
+                    <line x1="12" y1="17" x2="12" y2="21"></line>
+                  </svg>
+                </div>
+                <h4>Software Gestionale</h4>
+                <p>Piattaforma di cassa, scorte e gestione analitica del punto vendita integrata.</p>
+              </div>
+
+              <div class="service-card">
+                <div class="icon-wrapper">
+                  <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 2a5 5 0 0 0-5 5v1H4a2 2 0 0 0-2 2v2a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-2a2 2 0 0 0-2-2h-3V7a5 5 0 0 0-5-5Z"></path>
+                    <path d="M6 14v4a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2v-4"></path>
+                    <line x1="10" y1="10" x2="14" y2="10"></line>
+                  </svg>
+                </div>
+                <h4>Fornitura Centralizzata</h4>
+                <p>Prodotti artigianali sempre freschi e standard qualitativo d'eccellenza costante su tutta la rete.</p>
+              </div>
+
+              <div class="service-card">
+                <div class="icon-wrapper">
+                  <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="m3 11 18-5v12L3 14v-3z"></path>
+                    <path d="M11.6 16.8a3 3 0 1 1-5.8-1.6"></path>
+                  </svg>
+                </div>
+                <h4>Marketing & Lancio</h4>
+                <p>Materiale promozionale e strategie di comunicazione della rete con posizionamento social e locale.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Showcase Locale & Prodotti Gourmet Gallery -->
+          <div class="gallery-wrapper mt-5">
+            <div class="text-center mb-5">
+              <span class="section-tag">Design & Menu</span>
+              <h3>Il Locale e le Nostre Creazioni Gourmet</h3>
+              <p class="subtitle">Uno spazio compatto ed efficiente con una gamma di prodotti ad alto valore percepito.</p>
+            </div>
+
+            <!-- Spotlight: Interno Locale -->
+            <div class="feature-spotlight mb-4">
+              <div class="locale-img-wrap">
+                <img src="assets/images/interno-locale.jpg" alt="AMASCALZON Design Interno Locale" class="locale-feature-img">
+                <div class="spotlight-overlay">
+                  <span class="spotlight-tag">Format 20–40 mq</span>
+                  <h4>Design Moderno & Ottimizzazione Totale degli Spazi</h4>
+                  <p>Ogni centimetro è progettato per garantire massima efficienza, pulizia e velocità di servizio.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Grid Prodotti Gourmet (5 Card Complete) -->
+            <div class="gallery-grid">
+              <div class="gallery-item">
+                <div class="gallery-img-wrap">
+                  <img src="assets/images/2burger.jpg" alt="Burger Gourmet AMASCALZON">
+                  <span class="gallery-tag">Best Seller</span>
+                </div>
+                <div class="gallery-info">
+                  <h4>Burger Gourmet</h4>
+                  <p>Carni selezionate e abbinamenti unici per un'esperienza di gusto superiore.</p>
+                </div>
+              </div>
+
+              <div class="gallery-item">
+                <div class="gallery-img-wrap">
+                  <img src="assets/images/prodotto-finito1.jpg" alt="Panino d'Autore AMASCALZON">
+                  <span class="gallery-tag">Artigianale</span>
+                </div>
+                <div class="gallery-info">
+                  <h4>Panini d'Autore</h4>
+                  <p>Ingredienti freschi, salse esclusive e pani fragranti preparati nel nostro laboratorio.</p>
+                </div>
+              </div>
+
+              <div class="gallery-item">
+                <div class="gallery-img-wrap">
+                  <img src="assets/images/prodotto-finito2.jpg" alt="Creazioni Gourmet AMASCALZON">
+                  <span class="gallery-tag">Qualità Premium</span>
+                </div>
+                <div class="gallery-info">
+                  <h4>Sapori Ricercati</h4>
+                  <p>Ricette standardizzate e shelf-life ottimizzata per zero sprechi e resa costante.</p>
+                </div>
+              </div>
+
+              <div class="gallery-item">
+                <div class="gallery-img-wrap">
+                  <img src="assets/images/burgerina.jpg" alt="Burgerina Specialità AMASCALZON">
+                  <span class="gallery-tag">Specialità</span>
+                </div>
+                <div class="gallery-info">
+                  <h4>Burgerina</h4>
+                  <p>La creazione iconica firmata AMASCALZON per conquistare qualsiasi target.</p>
+                </div>
+              </div>
+
+              <div class="gallery-item">
+                <div class="gallery-img-wrap">
+                  <img src="assets/images/bonbon.jpg" alt="Bonbon Salati AMASCALZON">
+                  <span class="gallery-tag">Finger Food</span>
+                </div>
+                <div class="gallery-info">
+                  <h4>Bon Bon Salati</h4>
+                  <p>Bocconi gourmet sfiziosi, perfetti per aperitivi, asporto e formule combo.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="text-center mt-5">
+            <a href="#view-contatti" data-target="view-contatti" class="btn btn-primary" style="padding: 1rem 2.5rem; font-size: 1rem;">RICHIEDI INFORMAZIONI SUL FRANCHISING &rarr;</a>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- 4. VISTA CHI SIAMO -->
+    <div id="view-chisiamo" class="site-section">
+      <div class="container" style="padding-top: 1.5rem;">
+        <button type="button" class="btn-back-home" data-target="view-home">&larr; TORNA ALLA SELEZIONE PRINCIPALE</button>
+      </div>
+      <section class="section-padding bg-darker" id="chi-siamo">
+        <div class="container split-grid">
+          <div class="split-img-box">
+            <img src="assets/images/immagine-amascalzon.webp" alt="AMASCALZON Storia ed Eccellenza" class="rounded-img">
+          </div>
+          <div class="split-content">
+            <span class="section-tag">Chi Siamo</span>
+            <h2>Oltre 20 anni di eccellenza e passione food</h2>
+            <p>
+              <strong>AMASCALZON</strong> nasce a Sant'Antonio Abate (NA) come pub dedicato ai panini gourmet, diventando un solido punto di riferimento per migliaia di clienti grazie a materie prime selezionate e continua ricerca culinaria.
             </p>
-          </div>
-
-          <!-- Feature Spotlight: Interno Locale -->
-          <div class="locale-spotlight mb-5">
-            <div class="locale-img-wrap">
-              <img src="assets/images/interno-locale.jpg" alt="Interno Locale AMASCALZON Mini Pub"
-                class="spotlight-img">
-              <div class="spotlight-overlay">
-                <span class="spotlight-badge">Format 20–40 mq</span>
-                <h4>Design Ottimizzato Senza Cappa</h4>
-                <p>Spazi compatti e accattivanti, studiati al millimetro per garantire la massima produttività e
-                  velocità di servizio con sole 2 persone di staff.</p>
+            <p>
+              L'esperienza maturata nella nostra sede storica di <strong>Via Stabia 210</strong> ci ha spinti a risolvere i veri problemi della ristorazione moderna: alti costi di gestione, reperibilità del personale specializzato e complessità operative. Da qui prende vita <strong>AMASCALZON Mini Pub</strong>.
+            </p>
+            <div class="feature-pill-list">
+              <div class="pill">
+                <svg class="pill-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+                <span>Laboratorio centrale proprietario</span>
               </div>
-            </div>
-          </div>
-
-          <!-- Grid Prodotti Gourmet -->
-          <div class="gallery-grid">
-            <div class="gallery-item">
-              <div class="gallery-img-wrap">
-                <img src="assets/images/2burger.jpg" alt="Burger Gourmet AMASCALZON">
-                <span class="gallery-tag">Best Seller</span>
+              <div class="pill">
+                <svg class="pill-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+                <span>Ricette standardizzate e shelf-life 15 giorni</span>
               </div>
-              <div class="gallery-info">
-                <h4>Burger Gourmet</h4>
-                <p>Carni selezionate e abbinamenti unici per un'esperienza di gusto superiore.</p>
-              </div>
-            </div>
-
-            <div class="gallery-item">
-              <div class="gallery-img-wrap">
-                <img src="assets/images/prodotto-finito1.jpg" alt="Panino d'Autore AMASCALZON">
-                <span class="gallery-tag">Artigianale</span>
-              </div>
-              <div class="gallery-info">
-                <h4>Panini d'Autore</h4>
-                <p>Ingredienti freschi, salse esclusive e pani fragranti preparati nel nostro laboratorio.</p>
-              </div>
-            </div>
-
-            <div class="gallery-item">
-              <div class="gallery-img-wrap">
-                <img src="assets/images/prodotto-finito2.jpg" alt="Creazioni Gourmet AMASCALZON">
-                <span class="gallery-tag">Qualità Premium</span>
-              </div>
-              <div class="gallery-info">
-                <h4>Sapori Ricercati</h4>
-                <p>Ricette standardizzate e shelf-life ottimizzata per zero sprechi e resa costante.</p>
-              </div>
-            </div>
-
-            <div class="gallery-item">
-              <div class="gallery-img-wrap">
-                <img src="assets/images/burgerina.jpg" alt="Burgerina Specialità AMASCALZON">
-                <span class="gallery-tag">Specialità</span>
-              </div>
-              <div class="gallery-info">
-                <h4>Burgerina</h4>
-                <p>La creazione iconica firmata AMASCALZON per conquistare qualsiasi target.</p>
-              </div>
-            </div>
-
-            <div class="gallery-item">
-              <div class="gallery-img-wrap">
-                <img src="assets/images/bonbon.jpg" alt="Bonbon Salati AMASCALZON">
-                <span class="gallery-tag">Finger Food</span>
-              </div>
-              <div class="gallery-info">
-                <h4>Bon Bon Salati</h4>
-                <p>Bocconi gourmet sfiziosi, perfetti per aperitivi, asporto e formule combo.</p>
+              <div class="pill">
+                <svg class="pill-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+                <span>Massima qualità artigianale replicabile ovunque</span>
               </div>
             </div>
           </div>
         </div>
+      </section>
+    </div>
+
+    <!-- 5. VISTA CONTATTI -->
+    <div id="view-contatti" class="site-section">
+      <div class="container" style="padding-top: 1.5rem;">
+        <button type="button" class="btn-back-home" data-target="view-home">&larr; TORNA ALLA SELEZIONE PRINCIPALE</button>
       </div>
-    </section>
+      <section class="section-padding bg-darker" id="contatti">
+        <div class="container contact-grid">
+          <div class="contact-info">
+            <span class="section-tag">Contatti Ufficiali</span>
+            <h2>Apri il tuo locale o parla con noi</h2>
+            <p>Compila il modulo per ricevere la brochure informativa dettagliata sul format AMASCALZON Mini Pub o per qualsiasi richiesta.</p>
 
-    <!-- 4. CONTATTI / Candidatura Franchising -->
-    <section class="section-padding bg-darker" id="contatti">
-      <div class="container contact-grid">
-        <div class="contact-info">
-          <span class="section-tag">Contatti</span>
-          <h2>Apri il tuo locale</h2>
-          <p>Compila il modulo per ricevere la documentazione completa e concordare una call con il nostro team di
-            sviluppo rete.</p>
-
-          <div class="info-blocks">
-            <div class="info-item">
-              <div class="info-item-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <rect x="2" y="4" width="20" height="16" rx="2"></rect>
-                  <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
-                </svg>
-              </div>
-              <div>
-                <strong>Email Contatti & Franchising</strong>
+            <div class="info-blocks">
+              <div class="info-item-clean">
+                <strong>Email Diretta:</strong>
                 <a href="mailto:mascoloalfy@libero.it" class="info-link">mascoloalfy@libero.it</a>
               </div>
-            </div>
-            <div class="info-item">
-              <div class="info-item-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                  stroke-linejoin="round">
-                  <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"></path>
-                  <circle cx="12" cy="10" r="3"></circle>
-                </svg>
+              <div class="info-item-clean">
+                <strong>Sede Storica Pub:</strong>
+                <span>Via Stabia 210, Sant'Antonio Abate (NA)</span>
               </div>
-              <div>
-                <strong>Sede Sviluppo</strong>
-                <span>Sant'Antonio Abate (NA)</span>
-              </div>
-            </div>
-            <div class="info-item">
-              <div class="info-item-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                  stroke-linejoin="round">
-                  <circle cx="12" cy="12" r="10"></circle>
-                  <line x1="2" y1="12" x2="22" y2="12"></line>
-                  <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z">
-                  </path>
-                </svg>
-              </div>
-              <div>
-                <strong>Domini Ufficiali</strong>
-                <span>amascalzon.it / amascalzon.com</span>
+              <div class="info-item-clean">
+                <strong>Telefono & WhatsApp:</strong>
+                <a href="tel:+393293272738" class="info-link">+39 329 327 2738</a>
               </div>
             </div>
           </div>
+
+          <form class="contact-form" id="lead-form">
+            <div class="form-group">
+              <label for="name">Nome e Cognome *</label>
+              <input type="text" id="name" name="name" required placeholder="Mario Rossi">
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="phone">Telefono *</label>
+                <input type="tel" id="phone" name="phone" required placeholder="+39 333 0000000">
+              </div>
+              <div class="form-group">
+                <label for="email">Email *</label>
+                <input type="email" id="email" name="email" required placeholder="mario@email.it">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="city">Città / Zona di interesse *</label>
+              <input type="text" id="city" name="city" required placeholder="Es. Napoli, Salerno, Roma, Milano...">
+            </div>
+            <div class="form-group">
+              <label for="has-local">Hai già un locale a disposizione?</label>
+              <select id="has-local" name="has_local">
+                <option value="No, devo ancora cercarlo">No, devo ancora cercarlo</option>
+                <option value="Sì, ho già un locale disponibile (20-40 mq)">Sì, ho già un locale disponibile (20-40 mq)</option>
+                <option value="Sto visionando alcune opzioni">Sto visionando alcune opzioni</option>
+              </select>
+            </div>
+            <button type="submit" id="submit-btn" class="btn btn-primary btn-block">Invia Candidatura Franchising</button>
+            <div id="form-feedback" class="form-feedback" style="display: none;"></div>
+          </form>
         </div>
-
-        <form class="contact-form" id="lead-form" action="https://formsubmit.co/mascoloalfy@libero.it" method="POST">
-          <input type="hidden" name="_subject" value="Nuova Candidatura Franchising - AMASCALZON Mini Pub">
-          <input type="hidden" name="_template" value="table">
-          <input type="hidden" name="_captcha" value="false">
-
-          <div class="form-group">
-            <label for="name">Nome e Cognome *</label>
-            <input type="text" id="name" name="Nome e Cognome" required placeholder="Mario Rossi">
-          </div>
-          <div class="form-row">
-            <div class="form-group">
-              <label for="phone">Telefono *</label>
-              <input type="tel" id="phone" name="Telefono" required placeholder="+39 333 0000000">
-            </div>
-            <div class="form-group">
-              <label for="email">Email *</label>
-              <input type="email" id="email" name="Email" required placeholder="mario@email.it">
-            </div>
-          </div>
-          <div class="form-group">
-            <label for="city">Città / Zona di interesse *</label>
-            <input type="text" id="city" name="Città / Zona di interesse" required placeholder="Es. Napoli, Salerno, Milano...">
-          </div>
-          <div class="form-group">
-            <label for="has-local">Hai già un locale a disposizione?</label>
-            <select id="has-local" name="Locale a disposizione">
-              <option value="No, devo ancora cercarlo">No, devo ancora cercarlo</option>
-              <option value="Sì, ho già un locale disponibile (20-40 mq)">Sì, ho già un locale disponibile (20-40 mq)</option>
-              <option value="Sto visionando alcune opzioni">Sto visionando alcune opzioni</option>
-            </select>
-          </div>
-          <button type="submit" id="submit-btn" class="btn btn-primary btn-block">Invia Candidatura Franchising</button>
-          <div id="form-feedback" class="form-feedback" style="display: none;"></div>
-        </form>
-      </div>
-    </section>
+      </section>
+    </div>
   </main>
 
-  <footer class="footer">
-    <div class="container footer-bottom">
-      <p>&copy; 2026 AMASCALZON Mini Pub. Tutti i diritti riservati.</p>
-      <div class="footer-links">
-        <a href="#home">Home</a>
-        <a href="#chi-siamo">Chi Siamo</a>
-        <a href="#franchising">Franchising</a>
-        <a href="#contatti">Contatti</a>
+  <!-- MODALE PERSONALIZZAZIONE PIATTO -->
+  <div class="custom-modal-backdrop" id="modal-customization" role="dialog" aria-modal="true">
+    <div class="custom-modal-dialog">
+      <div class="custom-modal-header">
+        <div style="flex: 1;">
+          <h3 id="custom-modal-title" style="color: #fff; margin: 0 0 0.25rem 0;">Nome Piatto</h3>
+          <p id="custom-modal-desc" style="color: #888; font-size: 0.8rem; margin: 0 0 0.4rem 0;">Descrizione</p>
+          <div class="modal-price-badge" id="custom-modal-price">0,00 €</div>
+        </div>
+        <button type="button" class="btn-close-modal" id="btn-close-custom-modal">&times;</button>
       </div>
+      <div class="custom-modal-body">
+        <div id="custom-ingredients-section">
+          <div class="custom-section-title">PERSONALIZZA GLI INGREDIENTI</div>
+          <p style="color: #777; font-size: 0.75rem; margin-bottom: 0.5rem;">Deseleziona per rimuovere un ingrediente:</p>
+          <div class="custom-ingredients-list" id="custom-ingredients-list"></div>
+        </div>
+        <div class="booking-form-group" style="margin-top: 1rem;">
+          <label for="custom-item-notes">Note per la cucina</label>
+          <textarea id="custom-item-notes" class="booking-form-control" rows="2" placeholder="Es. Salsa a parte, ben cotto..."></textarea>
+        </div>
+      </div>
+      <div class="custom-modal-footer">
+        <div class="qty-control-wrap">
+          <button type="button" class="btn-qty" id="btn-custom-qty-minus">-</button>
+          <span class="qty-display" id="custom-qty-display">1</span>
+          <button type="button" class="btn-qty" id="btn-custom-qty-plus">+</button>
+        </div>
+        <button type="button" class="btn-add-cart-confirm" id="btn-add-to-cart">AGGIUNGI AL CARRELLO</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- BARRA FLOTTANTE CARRELLO -->
+  <div class="asporto-floating-bar" id="asporto-floating-cart-bar">
+    <div class="floating-bar-info">
+      <span id="float-cart-count">0 ARTICOLI</span>
+      <strong id="float-cart-total">TOTALE: 0,00 €</strong>
+    </div>
+    <button type="button" class="btn-primary" id="btn-open-cart">VEDI CARRELLO & ORDINA</button>
+  </div>
+
+  <!-- DRAWER CARRELLO & CHECKOUT -->
+  <div class="cart-drawer-backdrop" id="cart-drawer-modal" role="dialog" aria-modal="true">
+    <div class="cart-drawer-panel">
+      <div class="cart-drawer-header">
+        <h3>IL TUO CARRELLO ASPORTO</h3>
+        <button type="button" class="btn-close-modal" id="btn-close-cart-drawer">&times;</button>
+      </div>
+      <div class="cart-drawer-body">
+        <div class="cart-items-list" id="cart-items-list"></div>
+        <div id="cart-checkout-section" style="display: none;">
+          <div class="cart-total-strip">
+            <span>Totale da Pagare al Ritiro:</span>
+            <strong id="cart-drawer-total" style="color: #D4AF37; font-size: 1.25rem;">0,00 €</strong>
+          </div>
+          <form id="form-checkout-asporto" style="margin-top: 1rem;">
+            <div class="booking-form-group">
+              <label for="asporto-nome">Nome e Cognome *</label>
+              <input type="text" id="asporto-nome" class="booking-form-control" required placeholder="Mario Rossi">
+            </div>
+            <div class="booking-form-group">
+              <label for="asporto-telefono">Numero di Telefono *</label>
+              <input type="tel" id="asporto-telefono" class="booking-form-control" required placeholder="+39 333 1234567">
+            </div>
+            <div class="booking-form-group">
+              <label for="asporto-orario">Orario Ritiro (Via Stabia 210) *</label>
+              <select id="asporto-orario" class="booking-form-control" required>
+                <option value="19:30">19:30</option>
+                <option value="19:45">19:45</option>
+                <option value="20:00">20:00</option>
+                <option value="20:15">20:15</option>
+                <option value="20:30" selected>20:30</option>
+                <option value="20:45">20:45</option>
+                <option value="21:00">21:00</option>
+                <option value="21:15">21:15</option>
+                <option value="21:30">21:30</option>
+                <option value="21:45">21:45</option>
+                <option value="22:00">22:00</option>
+                <option value="22:15">22:15</option>
+                <option value="22:30">22:30</option>
+                <option value="22:45">22:45</option>
+                <option value="23:00">23:00</option>
+              </select>
+            </div>
+            <div class="booking-form-group">
+              <label for="asporto-note">Note Aggiuntive</label>
+              <textarea id="asporto-note" class="booking-form-control" rows="2" placeholder="Richieste sul ritiro..."></textarea>
+            </div>
+            <button type="submit" class="btn-whatsapp-submit">INVIA ORDINE SU WHATSAPP</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Pulsante Torna Su Flottante -->
+  <button type="button" class="btn-scroll-top" id="btn-scroll-top" aria-label="Torna in cima">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+      <polyline points="18 15 12 9 6 15"></polyline>
+    </svg>
+  </button>
+
+  <footer class="footer">
+    <div class="container text-center">
+      <p>&copy; 2026 AMASCALZON Pub &bull; Via Stabia 210, Sant'Antonio Abate (NA) &bull; Tel: <a href="tel:+393293272738" style="color:#D4AF37;">+39 329 327 2738</a></p>
     </div>
   </footer>
 
+  <script src="assets/js/menu-data.js"></script>
+  <script src="assets/js/booking.js"></script>
   <script src="assets/js/main.js"></script>
 </body>
-
 </html>
