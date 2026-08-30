@@ -1235,6 +1235,26 @@ html, body { width: 100%; max-width: 100vw; overflow-x: hidden; background: #0A0
   margin: 0 auto;
 }
 
+/* Titolo Bianco MENÙ */
+.menu-heading-block {
+  margin-bottom: 1.25rem;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.menu-white-title {
+  color: #ffffff;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.6rem;
+  font-weight: 800;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin: 0;
+  text-align: center;
+}
+
 /* Striscia Superiore Informativa */
 .menu-top-strip {
   background: #141414;
@@ -1551,6 +1571,9 @@ html, body { width: 100%; max-width: 100vw; overflow-x: hidden; background: #0A0
 }
 
 @media (max-width: 600px) {
+  .menu-white-title {
+    font-size: 1.3rem;
+  }
   .menu-acc-header {
     padding: 0.95rem 1rem;
   }

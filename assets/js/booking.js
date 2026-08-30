@@ -113,6 +113,9 @@
     const defaultOpenCat = (categoryToOpen && categories.includes(categoryToOpen)) ? categoryToOpen : null;
 
     let html = `
+      <div class="menu-heading-block">
+        <h3 class="menu-white-title">MENÙ</h3>
+      </div>
       <div class="menu-top-strip">
         <span>COPERTO 2,00 € &bull; SERVIZIO AL TAVOLO & ASPORTO WHATSAPP</span>
       </div>
